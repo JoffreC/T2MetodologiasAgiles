@@ -28,7 +28,7 @@ public class MainClass {
         int stock;
         int paginas;
         GestorUsuario gestor = new GestorUsuario();
-        GestorLibros gestorL= new GestorLibros();
+        GestorLibro gestorL= new GestorLibro();
         Scanner in = new Scanner(System.in);
 
         while (continuar == true) {

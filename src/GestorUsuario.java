@@ -24,19 +24,24 @@ public class GestorUsuario {
     public void verificarCedula(Usuario usuario){
         while (!esValida(usuario.getCedula())) {
             System.out.println("\nNo se puede realizar el registro del cliente: "
-                + "CÉDULA INV+ÁLIDA\n" + "Ingresar de nuevo");
+                + "CÉDULA INVÁLIDA\n" + "Ingresar de nuevo");
             usuario.setCedula(in.nextLine());
         }
     }
 
     //Método eliminarUsuario cliente
     public void eliminarUsuario(String cedula) {
-        if (!usuarios.isEmpty()) {
+        if (!existenUsuarios()) {
             buscarUsuario(cedula);
         } else {
             System.out.println("\nNo existen clientes registrados\n");
         }
 
+    }
+    
+    //EXTRACT METHOD
+    public boolean existenUsuarios(){
+        return usuarios.isEmpty();
     }
     
     //EXTRACT METHOD

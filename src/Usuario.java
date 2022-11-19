@@ -28,8 +28,9 @@ public class Usuario extends Persona{
                    
     @Override
     public String toString() {
-        return "Cliente\n" + 
-               "Está Suspendido: "+ String.valueOf(isSuspendido) + "\n"+super.toString();
+        return """
+               Cliente
+               Está Suspendido: """+ String.valueOf(isSuspendido) + "\n"+super.toString();
     }
     
     

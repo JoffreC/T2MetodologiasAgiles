@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
 /**
  *
@@ -14,13 +10,15 @@ import java.util.ArrayList;
  * @author Joffre
  */
 public class Libro {
+
     private String idLibro;
     private String titulo;
     private String autor;
     private String isbn;
     private int stock;
     private int paginas;
-    ArrayList<Ejemplar>ejemplares=new ArrayList<>();
+    ArrayList<Ejemplar> ejemplares = new ArrayList<>();
+
     public Libro(String idLibro, String titulo, String isbn, String autor, int stock, int paginas) {
         this.idLibro = idLibro;
         this.titulo = titulo;
@@ -29,6 +27,7 @@ public class Libro {
         this.stock = stock;
         this.paginas = paginas;
     }
+
     public String getIdLibro() {
         return idLibro;
     }
@@ -79,7 +78,11 @@ public class Libro {
 
     @Override
     public String toString() {
-        return "Libro" + "\nidLibro: " + idLibro + "\ntitulo: " + titulo + "\nautor: " + autor + "\nisbn: " + isbn + "\nstock: " + stock + ", paginas=" + paginas;
+        return """
+               Libro
+               idLibro: """ + idLibro + "\ntitulo: " + titulo + "\nautor: " 
+                + autor + "\nisbn: " + isbn + "\nstock: " + stock + ", paginas=" 
+                + paginas;
     }
-    
+
 }
