@@ -13,42 +13,60 @@ public class GestorUsuario {
     Scanner in = new Scanner(System.in);
 
     //Método registrar usuario
+    
     public void registrarUsuario(Usuario usuario) {
-        while (!esValida(usuario.getCedula())) {
-            System.out.println("\nNo se puede realizar el registro del cliente: "
-                    + "CÉDULA INVÁLIDA\n" + "Ingresar de nuevo");
-            usuario.setCedula(in.nextLine());
-        }
+        verificarCedula(usuario);
         usuarios.add(usuario);
         System.out.println("\nAgregado correctamente\n");
 
+    }
+    //EXTRACT METHOD
+    public void verificarCedula(Usuario usuario){
+        while (!esValida(usuario.getCedula())) {
+            System.out.println("\nNo se puede realizar el registro del cliente: "
+                + "CÉDULA INV+ÁLIDA\n" + "Ingresar de nuevo");
+            usuario.setCedula(in.nextLine());
+        }
     }
 
     //Método eliminarUsuario cliente
     public void eliminarUsuario(String cedula) {
         if (!usuarios.isEmpty()) {
-            for (Iterator<Usuario> it = usuarios.iterator(); it.hasNext();) {
-                Usuario cliente = it.next();
+            buscarUsuario(cedula);
+        } else {
+            System.out.println("\nNo existen clientes registrados\n");
+        }
+
+    }
+    
+    //EXTRACT METHOD
+    public void buscarUsuario(String cedula){
+        for (Iterator<Usuario> it = usuarios.iterator(); it.hasNext();) {
+            Usuario cliente = it.next();
                 if (cliente.getCedula().equals(cedula)) {
                     it.remove();
                     System.out.println("\nEliminación exitosa\n");
                 } else {
                     System.out.println("\nCliente no encontrado");
                 }
-            }
-        } else {
-            System.out.println("\nNo existen clientes registrados\n");
         }
-
     }
 
     //Método para validar cédula
     public static boolean esValida(String cedula) {
-        int suma = 0;
+        
         if (cedula.length() == 9) {
             return false;
         } else {
-            int a[] = new int[cedula.length() / 2];
+            return validarNumerosCedula(cedula);
+        }
+    }
+   
+    
+    //EXTRACT METHOD
+    public static boolean validarNumerosCedula(String cedula){
+        int suma = 0;
+    int a[] = new int[cedula.length() / 2];
             int b[] = new int[(cedula.length() / 2)];
             int c = 0;
             int d = 1;
@@ -70,14 +88,10 @@ public class GestorUsuario {
             }
             int aux = suma / 10;
             int dec = (aux + 1) * 10;
-            if ((dec - suma) == Integer.parseInt(String.valueOf(cedula.charAt(cedula.length() - 1)))) {
+            if ((dec - suma) == Integer.parseInt(String.valueOf(cedula.charAt(cedula.length() - 1)))) 
                 return true;
-            } else if (suma % 10 == 0 && cedula.charAt(cedula.length() - 1) == '0') {
-                return true;
-            } else {
-                return false;
-            }
-
-        }
+            else 
+               return (suma % 10 == 0 && cedula.charAt(cedula.length() - 1) == '0');   
+    
     }
 }
