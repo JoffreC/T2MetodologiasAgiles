@@ -30,7 +30,7 @@ public class MainClass {
         GestorUsuario gestor = new GestorUsuario();
         GestorLibro gestorL= new GestorLibro();
         Scanner in = new Scanner(System.in);
-
+/*
         while (continuar == true) {
             System.out.println("""
                                \nOpciones (Ingresar el número):\n
@@ -102,7 +102,7 @@ public class MainClass {
             System.out.println("\n¿Quiere seguir agregado o eliminando? Si o No");
             continuar = !in.nextLine().toUpperCase().equals("NO");
 
-        }
+        }*/
 
     
 

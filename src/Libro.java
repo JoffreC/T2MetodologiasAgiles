@@ -19,12 +19,12 @@ public class Libro {
     private int paginas;
     ArrayList<Ejemplar> ejemplares = new ArrayList<>();
 
-    public Libro(String idLibro, String titulo, String isbn, String autor, int stock, int paginas) {
+    public Libro(String idLibro, String titulo, String isbn, String autor, int paginas) {
         this.idLibro = idLibro;
         this.titulo = titulo;
         this.isbn = isbn;
         this.autor = autor;
-        this.stock = stock;
+        this.stock = ejemplares.size();
         this.paginas = paginas;
     }
 
@@ -76,6 +76,14 @@ public class Libro {
         this.paginas = paginas;
     }
 
+    public ArrayList<Ejemplar> getEjemplares() {
+        return ejemplares;
+    }
+
+    public void setEjemplares(ArrayList<Ejemplar> ejemplares) {
+        this.ejemplares = ejemplares;
+    }
+
     @Override
     public String toString() {
         return """
@@ -83,6 +91,11 @@ public class Libro {
                idLibro: """ + idLibro + "\ntitulo: " + titulo + "\nautor: " 
                 + autor + "\nisbn: " + isbn + "\nstock: " + stock + ", paginas=" 
                 + paginas;
+    }
+    
+    public void agregarEjemplar(Ejemplar ejemplar){
+        ejemplares.add(ejemplar);
+        System.out.println("Ejemplar agregado\n");
     }
 
 }

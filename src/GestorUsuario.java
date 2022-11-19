@@ -18,8 +18,8 @@ public class GestorUsuario {
         verificarCedula(usuario);
         usuarios.add(usuario);
         System.out.println("\nAgregado correctamente\n");
-
     }
+    
     //EXTRACT METHOD
     public void verificarCedula(Usuario usuario){
         while (!esValida(usuario.getCedula())) {

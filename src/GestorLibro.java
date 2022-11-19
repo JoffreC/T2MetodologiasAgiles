@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class GestorLibro {
 
     int index;
-    private ArrayList<Libro> libros = new ArrayList<Libro>();
+    private ArrayList<Libro> libros = new ArrayList<>();
     Scanner in = new Scanner(System.in);
     //private ArrayList<Integer>ejemplares=new ArrayList<Integer>();
 
@@ -51,19 +51,4 @@ public class GestorLibro {
         }
     }
 
-    public void agregarEjemplar(String idLibro, String estado) {
-        Iterator<Libro> iterator = libros.iterator();
-        while (iterator.hasNext()) {
-            Libro libro1 = iterator.next();
-            if (libro1.getIdLibro().equals(idLibro)) {
-                int index1 = libro1.getStock();
-                libro1.ejemplares.add(new Ejemplar(index1++, libro1.getIdLibro(), estado));
-                System.out.println("Ejemplar agregado\n");
-                libro1.setStock(index1++);
-                break;
-            } else {
-                System.out.println("El libro no existe\n");
-            }
-        }
-    }
 }
