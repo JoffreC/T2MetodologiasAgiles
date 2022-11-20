@@ -1,6 +1,5 @@
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -10,7 +9,7 @@ import java.util.Scanner;
 public class GestorLibro {
 
     int index;
-    private ArrayList<Libro> libros = new ArrayList<>();
+    ArrayList<Libro> libros = new ArrayList<>();
     Scanner in = new Scanner(System.in);
     //private ArrayList<Integer>ejemplares=new ArrayList<Integer>();
 
