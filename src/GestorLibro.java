@@ -25,17 +25,22 @@ public class GestorLibro {
     }
 
     public void eliminarLibro(String idLibro) {
-        Iterator<Libro> iterator = libros.iterator();
-        while (iterator.hasNext()) {
-            Libro libro1 = iterator.next();
-            if (libro1.getIdLibro().equals(idLibro)) {
-                iterator.remove();
+        if (!existenLibros()) {
+            Libro libro = buscarLibro(idLibro);
+            if(libro != null){
+                libros.remove(libro);
                 System.out.println("Libro eliminado exitosamente");
-                break;
-            } else {
-                System.out.println("El libro no existe");
+            }else{
+                System.out.println("El libro no se encuentra registrado");
             }
+        } else {
+            System.out.println("\nNo existen libros registrados\n");
         }
+    }
+    
+    //EXTRACT METHOD
+    public boolean existenLibros(){
+        return libros.isEmpty();
     }
 
     public Libro buscarLibro(String idLibro) {
