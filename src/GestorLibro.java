@@ -8,7 +8,6 @@ import java.util.Scanner;
  */
 public class GestorLibro {
 
-    int index;
     ArrayList<Libro> libros = new ArrayList<>();
     Scanner in = new Scanner(System.in);
     //private ArrayList<Integer>ejemplares=new ArrayList<Integer>();
