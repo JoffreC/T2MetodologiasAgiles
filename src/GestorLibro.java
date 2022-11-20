@@ -38,17 +38,15 @@ public class GestorLibro {
         }
     }
 
-    public void buscarLibro(String idLibro) {
-        String estado;
-        Iterator<Libro> it = libros.iterator();
-        while (it.hasNext()) {
-            Libro libro1 = it.next();
-            if (libro1.getIdLibro().equals(idLibro)) {
-                System.out.print(libro1.toString());
+    public Libro buscarLibro(String idLibro) {
+        for (Libro libro : libros) {
+            if (libro.getIdLibro().equals(idLibro)) {
+                return libro;
             } else {
-                System.out.print("\nEl libro no existe\n");
+                return null;
             }
         }
+        return null;
     }
 
 }
