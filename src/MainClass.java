@@ -30,7 +30,7 @@ public class MainClass {
         GestorUsuario gestor = new GestorUsuario();
         GestorLibro gestorL= new GestorLibro();
         Scanner in = new Scanner(System.in);
-/*
+
         while (continuar == true) {
             System.out.println("""
                                \nOpciones (Ingresar el número):\n
@@ -72,6 +72,7 @@ public class MainClass {
                     gestor.eliminarUsuario(in.nextLine());
                 }
                 case 3 -> {
+                    /*
                     System.out.println("\nIngrese el id del libro:");
                     idLibro=in.nextLine();
                     System.out.println("\nIngrese el título del libro:");
@@ -86,6 +87,7 @@ public class MainClass {
                     paginas=Integer.parseInt(in.nextLine());
                     libro=new Libro(idLibro,titulo,autor,isbn,stock,paginas);
                     gestorL.agregarLibro(libro);
+                    */
                 }
                 case 4-> {
                     System.out.println("\nIngrese el id del libro a eliminar:");
@@ -102,7 +104,7 @@ public class MainClass {
             System.out.println("\n¿Quiere seguir agregado o eliminando? Si o No");
             continuar = !in.nextLine().toUpperCase().equals("NO");
 
-        }*/
+        }
 
     
 

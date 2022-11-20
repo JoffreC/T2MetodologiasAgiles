@@ -32,9 +32,15 @@ public class GestorUsuario {
     //Método eliminarUsuario cliente
     public void eliminarUsuario(String cedula) {
         if (!existenUsuarios()) {
-            buscarUsuario(cedula);
+            Usuario usuario = buscarUsuario(cedula);
+            if(usuario != null){
+                usuarios.remove(usuario);
+                System.out.println("Usuario eliminado exitosamente");
+            }else{
+                System.out.println("El usuario no se encuentra registrado");
+            }
         } else {
-            System.out.println("\nNo existen clientes registrados\n");
+            System.out.println("\nNo existen usuarios registrados\n");
         }
 
     }
@@ -45,16 +51,15 @@ public class GestorUsuario {
     }
     
     //EXTRACT METHOD
-    public void buscarUsuario(String cedula){
-        for (Iterator<Usuario> it = usuarios.iterator(); it.hasNext();) {
-            Usuario cliente = it.next();
-                if (cliente.getCedula().equals(cedula)) {
-                    it.remove();
-                    System.out.println("\nEliminación exitosa\n");
+    public Usuario buscarUsuario(String cedula){
+        for(Usuario usuario: usuarios){
+            if (usuario.getCedula().equals(cedula)) {
+                return usuario;
                 } else {
-                    System.out.println("\nCliente no encontrado");
+                    return null;
                 }
         }
+        return null;
     }
 
     //Método para validar cédula
