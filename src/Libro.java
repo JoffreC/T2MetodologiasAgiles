@@ -96,6 +96,7 @@ public class Libro {
     public void agregarEjemplar(Ejemplar ejemplar){
         ejemplares.add(ejemplar);
         System.out.println("Ejemplar agregado\n");
+        this.stock = ejemplares.size();
     }
 
 }

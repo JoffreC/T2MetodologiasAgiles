@@ -22,8 +22,10 @@ public class GestorUsuario {
     //EXTRACT METHOD
     public void verificarCedula(Usuario usuario){
         while (!esValida(usuario.getCedula())) {
-            System.out.println("\nNo se puede realizar el registro del cliente: "
-                + "CÉDULA INVÁLIDA\n" + "Ingresar de nuevo");
+            System.out.println("""
+                               
+                               No se puede realizar el registro del cliente: C\u00c9DULA INV\u00c1LIDA
+                               Ingresar de nuevo la cédula""");
             usuario.setCedula(in.nextLine());
         }
     }
